@@ -53,38 +53,38 @@ class Program
 
 class Hesapla
 {
-    private List<Model> _dovizKurlari;
+    private List<Model> dovizKurlariList;
 
     public Hesapla(List<Model> dovizKurlari)
     {
-        _dovizKurlari = dovizKurlari;
+        dovizKurlariList = dovizKurlari;
     }
 
     public void MaxKarHesapla()
     {
-        int n = _dovizKurlari.Count;
+        int n = dovizKurlariList.Count;
         if (n == 0) return;
 
-        double minAlisFiyati = _dovizKurlari[0].AlisFiyati;
-        DateTime minAlisTarihi = _dovizKurlari[0].Tarih;
+        double minAlisFiyati = dovizKurlariList[0].AlisFiyati;
+        DateTime minAlisTarihi = dovizKurlariList[0].Tarih;
         double maxKar = 0;
-        DateTime alisTarihi = _dovizKurlari[0].Tarih;
-        DateTime satisTarihi = _dovizKurlari[0].Tarih;
+        DateTime alisTarihi = dovizKurlariList[0].Tarih;
+        DateTime satisTarihi = dovizKurlariList[0].Tarih;
 
         for (int i = 1; i < n; i++)
         {
-            if (_dovizKurlari[i].AlisFiyati < minAlisFiyati)
+            if (dovizKurlariList[i].AlisFiyati < minAlisFiyati)
             {
-                minAlisFiyati = _dovizKurlari[i].AlisFiyati;
-                minAlisTarihi = _dovizKurlari[i].Tarih;
+                minAlisFiyati = dovizKurlariList[i].AlisFiyati;
+                minAlisTarihi = dovizKurlariList[i].Tarih;
             }
 
-            double kar = _dovizKurlari[i].SatisFiyati - minAlisFiyati;
+            double kar = dovizKurlariList[i].SatisFiyati - minAlisFiyati;
             if (kar > maxKar)
             {
                 maxKar = kar;
                 alisTarihi = minAlisTarihi;
-                satisTarihi = _dovizKurlari[i].Tarih;
+                satisTarihi = dovizKurlariList[i].Tarih;
             }
         }
 
